@@ -6,13 +6,83 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script type="module" defer src="/src/main.ts"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600&display=swap" rel="stylesheet">
 
-  <title>Vite + TS</title>
+  <script type="module" defer src="/src/main.ts"></script>
+  <script defer src="https://unpkg.com/phosphor-icons"></script>
+
+  <title>Alarme</title>
 </head>
 
 <body>
-  <main></main>
+  <main>
+    <header>
+      <i class="ph-alarm-fill"></i>
+
+      <div class="texts">
+        <h1>Crie um alarme agora</h1>
+
+        <p>Seja avisado para não perder seus compromissos</p>
+      </div>
+    </header>
+
+    <section>
+      <div class="buttons">
+        <button data-element="open-modal-button">
+          <i class="ph-plus-fill"></i>
+        </button>
+
+        <button disabled data-element="stop-alarm-button">
+          <i class="ph-stop-fill"></i>
+        </button>
+      </div>
+
+      <ul></ul>
+    </section>
+
+    <div data-element="modal" class="modal-overlay">
+      <div class="modal-content">
+        <button data-element="close-modal-button" class="hide-modal-button">
+          <i class="ph-x-circle"></i>
+        </button>
+
+        <h2 data-element="current-time-exhibitor"></h2>
+
+        <form>
+          <div class="input-block">
+            <label for="label">Label</label>
+
+            <input type="text" id="label" placeholder="algum lembrete">
+          </div>
+
+          <div class="details-container">
+            <select data-element="select-hour">
+              <option value="" hidden selected>Horas</option>
+            </select>
+
+            <select data-element="select-minutes">
+              <option value="" hidden selected>Minutos</option>
+            </select>
+
+            <select data-element="select-time-course">
+              <!-- <option value="" hidden >Período</option> -->
+              <option value="AM" selected>
+                AM
+              </option>
+
+              <option value="PM">
+                PM
+              </option>
+            </select>
+          </div>
+
+          <button>Criar alarme</button>
+        </form>
+      </div>
+    </div>
+  </main>
 </body>
 
 </html>
